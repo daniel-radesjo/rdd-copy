@@ -116,7 +116,7 @@ rdd_open_ewf_writer(RDD_WRITER **self, const char *path,
 	int rc = RDD_OK;
 	char *pathcopy = 0;
 	char *pathcopy_without_extension = 0;
-	uint8_t flags = libewf_get_flags_write();
+	uint8_t flags = libewf_get_access_flags_write();
 	const char * EWF_EXTENSION = ".E01";
 	int8_t compression_level = LIBEWF_COMPRESSION_NONE;
 	uint8_t empty_block_compression = 0;
@@ -245,7 +245,7 @@ rdd_open_ewf_writer(RDD_WRITER **self, const char *path,
 	}
 
 	if (splitlen > 0) {
-		if (libewf_handle_set_segment_file_size(state->ewf_handle, splitlen, &err) == -1)
+		if (libewf_handle_set_maximum_segment_size(state->ewf_handle, splitlen, &err) == -1)
 		{
 			libewf_error_free(&err);
 			rc = RDD_EOPEN;

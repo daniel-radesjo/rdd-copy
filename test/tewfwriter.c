@@ -388,7 +388,7 @@ error:
 static int 
 check_ewf_file(char * filenames[], int numfiles, void * contents, size_t size, rdd_count_t segment_size, uint8_t * md5_hash, uint8_t * sha1_hash, int compress_level)
 {
-	uint8_t flags = libewf_get_flags_read();
+	uint8_t flags = libewf_get_access_flags_read();
 	libewf_handle_t * handle = 0;
 	int8_t compression_level;
 	uint8_t compression_flags;
@@ -463,7 +463,7 @@ check_ewf_file(char * filenames[], int numfiles, void * contents, size_t size, r
 
 
 	/* Check segment file size */
-	if (libewf_handle_get_segment_file_size(handle, &retrieved_segment_size, &err) == -1) {
+	if (libewf_handle_get_maximum_segment_size(handle, &retrieved_segment_size, &err) == -1) {
 		libewf_error_free(&err);
 		printf("can't get ewf segment file size\n");
 		goto error;

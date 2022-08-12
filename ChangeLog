@@ -1,3 +1,6 @@
+2022-08-12 Daniel Rådesjö <daniel.radesjo@gmail.com>
+	* ewfwriter.c, tewfwriter.c: modified function names to work with new version of libewf.
+
 2010-10-27 Leon Aronson <leon@holmes.nl>
 	* rddcopy.c, rdd_internals.c, rdd_internals.h: Added 'remaining' time to progress line.
 	* configure.ac, rddcopy.c: removed RDD_RAW compile flag.
