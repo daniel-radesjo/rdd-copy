@@ -1,0 +1,151 @@
+2010-10-27 Leon Aronson <leon@holmes.nl>
+	* rddcopy.c, rdd_internals.c, rdd_internals.h: Added 'remaining' time to progress line.
+	* configure.ac, rddcopy.c: removed RDD_RAW compile flag.
+
+2010-03-31 Leon Aronson <leon@holmes.nl>
+	* rddcopy.c, ewfwriter.c, writer.h: added output as ewf option.
+	* rddcopy.c: added option for multiple output files.
+
+2007-08-17 Jeroen van den Bos <jeroen@holmes.nl>
+
+	* commandline.c: When using option short names, option and arguments
+	don't have to be seperated byte whitespace anymore.
+
+	* rddgui.h, util.c, wizwin.c: rdd-gui no longer crashes when either
+	the integrity or statistics advanced dialog is opened.
+	
+	* commandline.c, commandline.h, rddcopy.c: rdd-copy no longer accepts
+	the same file as input and output.
+	
+	* copier.h, progress.c, progress.h, rddcopy.c, robustcopier.c, simplecopier.c:
+	Progress updates now also report the total amount of substituted
+	bytes.
+
+2003-01-02  EJ  <kojak@gaijin.nl>
+
+	* verifier.c (verify_file): Added error which only occurred when the size of the file was an integer multiple of the blocksize.
+
+	* configure.in, Makefile.am: Added proper detection of large files. This needs autoconf-2.50+ to work.
+
+	* verifier.c: You can verify that an image written with
+	checksumming turned on is not altered. You can also verify that
+	the MD5 and SH1 checksums are valid.
+
+	* rdd.c: added checksumming option. Currently CRC32 and Adler32
+	are supported.
+
+	* checksum.c, checksum.h: code for supporting the checksumming of
+	images.
+
+	* rdd_internals.h: moved the global options out.
+
+	* commandline.c commandline.h: moved the parsing of the
+	commandlines to its own files. In that way the code can be reused
+	in other executatbles.
+
+2002-04-20  raoul  <raoul@localhost.localdomain>
+
+	* rcheck.1, verify.c:
+	Raoul: added rcheck man page; made rcheck logfile optional
+
+	* main.c, md5.c, notes.txt, rdd.1, rdd.c, rdd_internals.h, sha1.c, hash.c:
+	Raoul: fixed config includes and optional output file
+
+	* configure.in: Raoul: upgraded to rdd-1.0-4
+
+	* configure.in, .cvsignore, Makefile.am:
+	Raoul: fixed Makefile.am; tested make dist
+
+2002-04-17  raoul  <raoul@localhost.localdomain>
+
+	* README: Raoul: added README again...
+
+	* AUTHORS, configure.in, INSTALL, README: Raoul: more config fixes
+
+	* AUTHORS, ChangeLog, configure.in, COPYING, .cvsignore, hash.c, INSTALL, main.c, Makefile, Makefile.am, md5.c, NEWS, sha1.c:
+	Raoul: adding autoconf/automake support
+
+2002-04-16  raoul  <raoul@localhost.localdomain>
+
+	* sha1.html, README: Raoul: added sha1.html
+
+2002-04-15  raoul  <raoul@localhost.localdomain>
+
+	* md5.c: Raoul: simplified MD5 code
+
+	* main.c, rdd.1, rdd_internals.h: Raoul: added --force option
+
+	* .cvsignore, hash.c, main.c, Makefile, md5.c, md5.h, notes.txt, rdd_internals.h, rfc1321.txt, sha1.c, sha1.h:
+	Raoul: added MD5 code
+
+2002-04-14  raoul  <raoul@localhost.localdomain>
+
+	* Makefile: Raoul: modified Makefile
+
+	* .cvsignore, Makefile: Raoul: added tgzdate file
+
+	* notes.txt, README: Raoul: added README
+
+2002-04-12  raoul  <raoul@localhost.localdomain>
+
+	* rdd.h: Raoul: new patch level, 1.0-3
+
+	* error.c, error.h, main.c, Makefile, rdd.1, rdd.c, rdd_internals.h, readwrite.c, readwrite.h, verify.c:
+	Raoul:
+	- added first version of verification code
+
+2002-04-11  raoul  <raoul@localhost.localdomain>
+
+	* main.c, rdd.c: Raoul:
+	- fixed bug in size parsing routine
+	- added size checks to rdd --- do not allow very large blocks
+
+2002-04-03  raoul  <raoul@localhost.localdomain>
+
+	* verify.c: Raoul: adding verification code
+
+	* rdd.1: Raoul: updated man page
+
+	* main.c, notes.txt, test.txt: Raoul: added overwrite protection
+
+	* rdd.c: Raoul: changed log message
+
+	* rdd.1: Raoul: changed copyright notice/disclaimer in man page
+
+	* .cvsignore, Makefile: Raoul: added tgz rule to Makefile
+
+	* main.c, Makefile, notes.txt, rdd.1, rdd.c, rdd_internals.h: Raoul:
+	- added code to compute size of input file
+	- will no longer write too many bytes to output file
+	- updated man page
+	- added save_pos/restore_pos routines
+
+	* rdd.1: Raoul: improved man page
+
+	* main.c, notes.txt, rdd.1, rdd.h: raoul: added version number option
+
+	* main.c, notes.txt, rdd.1, rdd.c, rdd_internals.h:
+	Raoul: added max-read-err option
+
+	* main.c, Makefile: Raoul: added compilation flags for large files
+
+	* rdd.1: Raoul: synchronized man page with source code
+
+2002-04-01  raoul  <raoul@localhost.localdomain>
+
+	* hash.c, rdd.c: Raoul:
+	- fixed bug in hash.c
+	- zero fill bytes are now included in the hashes
+
+2002-02-25  raoul  <raoul@localhost.localdomain>
+
+	* notes.txt: Raoul: added notes
+
+	* main.c, notes.txt, rdd.1: Raoul: added man page for rdd
+
+	* .cvsignore, error.c, error.h, hash.c, hash.h, main.c, Makefile, notes.txt, rdd.c, rdd.h, rdd_internals.h:
+	New file.
+
+	* .cvsignore, error.c, error.h, hash.c, hash.h, main.c, Makefile, notes.txt, rdd.c, rdd.h, rdd_internals.h:
+	Raoul: rdd imaging program
+

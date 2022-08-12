@@ -1,0 +1,17 @@
+Main author:
+
+Raoul A.F. Bhoedjang <raoul@holmes.nl>
+
+Some code was taken from RFC 1321, which contains Ron Rivest's example
+MD5 implementation.  This code is used only if libcrypto is not
+present at rdd configuration time.
+
+Contributing authors:
+	
+Erwin J. van Eijk <eijk@holmes.nl>	original adler32/crc32 code.
+Sjoert Bakker <sjoert@holmes.nl>	GUI screen design, some unit tests, 
+					maintenance
+Jeroen van den Bos <jeroen@holmes.nl>	maintenance
+Leon Aronson <leon@holmes.nl>		maintenance
+John Langezaal <laza@holmes.nl>		maintenance
+

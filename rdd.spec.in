@@ -1,0 +1,50 @@
+Summary:	A forensic imaging package
+Name:		rdd
+Version:	@PACKAGE_VERSION@
+License:	Copyright (c) 2002-2011 Netherlands Forensic Institute (NFI)
+Group:		Applications/System
+Source0:	%{name}-%{version}.tar.bz2
+URL:		http://sourceforge.net/projects/rdd
+BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+
+# This works around a bug in rpmbuild (rpmbuild exits
+# with the error message 'getOutputFrom(): broken pipe'
+%define __check_files %{nil}
+
+%description
+Forensic copying tools.
+
+%package core
+Summary: Core forensic copying tools
+Group: Applications/System
+
+%description core
+The rdd-core package contains a forensic copy program (rdd-copy)
+that handles read errors in a robust manner.  The package further
+includes a verification program.
+
+Install rdd-core if you want to copy media in a forensically
+sound manner.
+
+%prep
+%setup -q
+
+%build
+./configure --prefix=/usr --enable-console
+make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
+
+%install
+make install
+
+%files core
+%doc README COPYING ChangeLog RELEASE_NOTES
+
+/usr/bin/rdd-copy
+/usr/bin/rdd-verify
+/usr/bin/rddi
+/usr/bin/plot-entropy
+/usr/bin/plot-md5
+/usr/man/man1/rdd-copy.1
+/usr/man/man1/rdd-verify.1
+
+%clean
